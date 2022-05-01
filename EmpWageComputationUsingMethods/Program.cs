@@ -68,6 +68,26 @@ namespace EmpWageComputationUsingMethods
             Console.WriteLine("Employee Daily Wage = " + empDailyWage);
             Console.WriteLine();
         }
+        public void UC_4_SwitchCase()
+        {
+            Console.WriteLine("UC 4 Employee Daily Wage Using Switch case :: ");
+            int randomCheck = random.Next(3);
+            switch (randomCheck)
+            {
+                case 1:
+                    empHr = 8;
+                    break;
+                case 2:
+                    empHr = 4;
+                    break;
+                default:
+                    empHr = 0;
+                    break;
+            }
+            empDailyWage = empRatePerHrs * empHr;
+            Console.WriteLine("By Switch Case salary is = " + empDailyWage);
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("----------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION IN CLASSES AND METHODS --------------");
@@ -77,6 +97,7 @@ namespace EmpWageComputationUsingMethods
             prog.UC_1_EmpAttendance();
             prog.UC_2_EmpDailyWage();
             prog.UC_3_PartTimeEmpWage();
+            prog.UC_4_SwitchCase();
         }
     }
 }
