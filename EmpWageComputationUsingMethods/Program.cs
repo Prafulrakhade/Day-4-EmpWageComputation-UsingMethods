@@ -9,9 +9,14 @@ namespace EmpWageComputationUsingMethods
         int isFullTime = 2;
         int empRatePerHrs = 20;
         int totalWorkingDays = 20;
+        int totalWorkingHrs = 100;
         int empHr = 0;
         int empDailyWage = 0;
+        int workingDays = 0;
         int totalSalary = 0;
+        int totalHrs = 0;
+        int workingDay = 0;
+        int workingHr = 0;
         int randomCheck;
         Random random = new Random();
         public void UC_1_EmpAttendance()
@@ -119,6 +124,36 @@ namespace EmpWageComputationUsingMethods
             Console.WriteLine("Employee Wage For Month = "+totalSalary);
             Console.WriteLine();
         }
+        public void UC_6_WorkingHrsAndDayForMonth()
+        {
+            Console.WriteLine("UC 6 Employee Wage Till a Condition :: ");
+            while (workingHr <= totalWorkingHrs && workingDays < totalWorkingDays)
+            {
+                workingDays++;
+                int randomCheck = random.Next(3);
+                switch (randomCheck)
+                {
+                    case 1:
+                        Console.WriteLine("full day  : ");
+                        empHr = 8;
+                        break;
+                    case 2:
+                        Console.WriteLine("Half day  : ");
+                        empHr = 4;
+                        break;
+                    default:
+                        Console.WriteLine("Absent : ");
+                        empHr = 0;
+                        break;
+                }
+                workingHr = workingHr + empHr;
+                Console.WriteLine("Days : " + workingDays + " - Emp Working hours : " + workingHr);
+                totalHrs += empHr;
+            }
+            Console.WriteLine("Total Hours = "+totalHrs);
+            totalSalary = workingHr * empRatePerHrs;
+            Console.WriteLine("Total Salary For Month = " + totalSalary);
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("----------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION IN CLASSES AND METHODS --------------");
@@ -130,6 +165,7 @@ namespace EmpWageComputationUsingMethods
             prog.UC_3_PartTimeEmpWage();
             prog.UC_4_SwitchCase();
             prog.UC_5_EmpWagesForMonth();
+            prog.UC_6_WorkingHrsAndDayForMonth();
         }
     }
 }
