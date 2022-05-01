@@ -8,8 +8,10 @@ namespace EmpWageComputationUsingMethods
         int isPartTime = 1;
         int isFullTime = 2;
         int empRatePerHrs = 20;
+        int totalWorkingDays = 20;
         int empHr = 0;
         int empDailyWage = 0;
+        int totalSalary = 0;
         int randomCheck;
         Random random = new Random();
         public void UC_1_EmpAttendance()
@@ -88,6 +90,35 @@ namespace EmpWageComputationUsingMethods
             Console.WriteLine("By Switch Case salary is = " + empDailyWage);
             Console.WriteLine();
         }
+        public void UC_5_EmpWagesForMonth()
+        {
+            Console.WriteLine("UC 5 Employee Wage For Month :: ");
+            for (int day = 1; day <= totalWorkingDays; day++)
+            {
+                randomCheck = random.Next(3);
+                switch (randomCheck)
+                {
+                    case 1:
+                        Console.WriteLine("Full Day : ");
+                        empHr = 8;
+                        break;
+                    case 2:
+                        Console.WriteLine("Half Day : ");
+                        empHr = 4;
+                        break;
+                    default:
+                        Console.WriteLine("Absent : ");
+                        empHr = 0;
+                        break;
+                }
+                empDailyWage = empRatePerHrs * empHr;
+                totalSalary = totalSalary + empDailyWage;
+                Console.WriteLine("Day : " + day +" Employee Wage  = "+totalSalary);
+                Console.WriteLine();
+            }
+            Console.WriteLine("Employee Wage For Month = "+totalSalary);
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("----------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION IN CLASSES AND METHODS --------------");
@@ -98,6 +129,7 @@ namespace EmpWageComputationUsingMethods
             prog.UC_2_EmpDailyWage();
             prog.UC_3_PartTimeEmpWage();
             prog.UC_4_SwitchCase();
+            prog.UC_5_EmpWagesForMonth();
         }
     }
 }
