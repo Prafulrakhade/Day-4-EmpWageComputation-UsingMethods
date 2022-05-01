@@ -44,6 +44,30 @@ namespace EmpWageComputationUsingMethods
             Console.WriteLine("Employee Daily Wage = "+empDailyWage);
             Console.WriteLine();
         }
+        public void UC_3_PartTimeEmpWage()
+        {
+            Console.WriteLine("UC 3 Part time Employee wages ::");
+            Random random = new Random();
+            randomCheck = random.Next(3);
+            if (isPartTime == 1)
+            {
+                Console.WriteLine("Employee is present part time ");
+                empHr = 4;
+            }
+            else if (isFullTime == 2)
+            {
+                Console.WriteLine("Employee is present full time ");
+                empHr = 8;
+            }
+            else
+            {
+                Console.WriteLine("Employee is Absent ");
+                empHr = 0;
+            }
+            empDailyWage = empHr * empRatePerHrs;
+            Console.WriteLine("Employee Daily Wage = " + empDailyWage);
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("----------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION IN CLASSES AND METHODS --------------");
@@ -52,6 +76,7 @@ namespace EmpWageComputationUsingMethods
             Program prog = new Program();
             prog.UC_1_EmpAttendance();
             prog.UC_2_EmpDailyWage();
+            prog.UC_3_PartTimeEmpWage();
         }
     }
 }
