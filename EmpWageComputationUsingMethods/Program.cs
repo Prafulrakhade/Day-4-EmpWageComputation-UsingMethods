@@ -6,7 +6,8 @@ namespace EmpWageComputationUsingMethods
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("----------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION IN CLASSES AND METHODS --------------");
+            Console.WriteLine();
         }
     }
 }
