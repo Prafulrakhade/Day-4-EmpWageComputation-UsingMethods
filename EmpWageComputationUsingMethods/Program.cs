@@ -5,10 +5,16 @@ namespace EmpWageComputationUsingMethods
     internal class Program
     {
         int isPresent = 1;
+        int isPartTime = 1;
+        int isFullTime = 2;
+        int empRatePerHrs = 20;
+        int empHr = 0;
+        int empDailyWage = 0;
         int randomCheck;
-        public void EmpAttendance()
+        Random random = new Random();
+        public void UC_1_EmpAttendance()
         {
-            Random random = new Random();
+            Console.WriteLine("UC 1 Employee Attendance ::");
             randomCheck = random.Next(2);
             if (randomCheck == isPresent)
             {
@@ -18,13 +24,34 @@ namespace EmpWageComputationUsingMethods
             {
                 Console.WriteLine("The Employee is Absent ");
             }
+            Console.WriteLine();
+        }
+        public void UC_2_EmpDailyWage()
+        {
+            Console.WriteLine("UC 2 Employee Daily Waage ::");
+            randomCheck = random.Next(2);
+            if (randomCheck == isPresent)
+            {
+                Console.WriteLine("The Employee is Present ");
+                empHr = 8;
+            }
+            else
+            {
+                Console.WriteLine("The Employee is Absent ");
+                empHr = 0;
+            }
+            empDailyWage = empHr * empRatePerHrs;
+            Console.WriteLine("Employee Daily Wage = "+empDailyWage);
+            Console.WriteLine();
         }
         static void Main(string[] args)
         {
             Console.WriteLine("----------------- WELCOME TO THE EMPLOYEE WAGE COMPUTATION IN CLASSES AND METHODS --------------");
             Console.WriteLine();
+
             Program prog = new Program();
-            prog.EmpAttendance();
+            prog.UC_1_EmpAttendance();
+            prog.UC_2_EmpDailyWage();
         }
     }
 }
